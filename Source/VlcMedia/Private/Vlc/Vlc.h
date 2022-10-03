@@ -30,7 +30,6 @@ public:
 
 	static FLibvlcEventAttachProc EventAttach;
 	static FLibvlcEventAttachProc EventDetach;
-	static FLibvlcEventTypeNameProc EventTypeName;
 
 	static FLibvlcLogGetContextProc LogGetContext;
 	static FLibvlcLogSetProc LogSet;
@@ -49,11 +48,8 @@ public:
 	static FLibvlcMediaNewCallbacksProc MediaNewCallbacks;
 	static FLibvlcMediaNewLocationProc MediaNewLocation;
 	static FLibvlcMediaNewPathProc MediaNewPath;
-	static FLibvlcMediaParseAsyncProc MediaParseAsync;
 	static FLibvlcMediaReleaseProc MediaRelease;
 	static FLibvlcMediaRetainProc MediaRetain;
-	static FLibvlcMediaTracksGetProc MediaTracksGet;
-	static FLibvlcMediaTracksReleaseProc MediaTracksRelease;
 
 	static FLibvlcMediaPlayerEventManagerProc MediaPlayerEventManager;
 	static FLibvlcMediaPlayerGetMediaProc MediaPlayerGetMedia;
@@ -80,20 +76,17 @@ public:
 	static FLibvlcMediaPlayerPlayProc MediaPlayerPlay;
 	static FLibvlcMediaPlayerSetPauseProc MediaPlayerSetPause;
 	static FLibvlcMediaPlayerStopProc MediaPlayerStop;
-	static FLibvlcMediaPlayerWillPlayProc MediaPlayerWillPlay;
 
 	static FLibvlcAudioGetTrackProc AudioGetTrack;
 	static FLibvlcAudioSetCallbacksProc AudioSetCallbacks;
 	static FLibvlcAudioSetFormatProc AudioSetFormat;
 	static FLibvlcAudioSetFormatCallbacksProc AudioSetFormatCallbacks;
 	static FLibvlcAudioSetTrackProc AudioSetTrack;
-
-	static FLibvlcVideoGetHeightProc VideoGetHeight;
+	
 	static FLibvlcVideoGetSizeProc VideoGetSize;
 	static FLibvlcVideoGetSpuProc VideoGetSpu;
 	static FLibvlcVideoGetSpuCountProc VideoGetSpuCount;
 	static FLibvlcVideoGetTrackProc VideoGetTrack;
-	static FLibvlcVideoGetWidthProc VideoGetWidth;
 	static FLibvlcVideoNewViewpointProc VideoNewViewpoint;
 	static FLibvlcVideoSetCallbacksProc VideoSetCallbacks;
 	static FLibvlcVideoSetFormatProc VideoSetFormat;

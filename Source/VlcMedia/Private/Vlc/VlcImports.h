@@ -19,7 +19,6 @@ typedef void (*FLibvlcClearerrProc)();
 typedef void (*FLibvlcCallback)(FLibvlcEvent* /*Event*/, void* /*UserData*/);
 typedef int32 (*FLibvlcEventAttachProc)(FLibvlcEventManager* /*EventManager*/, ELibvlcEventType /*EventType*/, FLibvlcCallback /*Callback*/, void* /*UserData*/);
 typedef int32 (*FLibvlcEventDetachProc)(FLibvlcEventManager* /*EventManager*/, ELibvlcEventType /*EventType*/, FLibvlcCallback /*Callback*/, void* /*UserData*/);
-typedef const ANSICHAR* (*FLibvlcEventTypeNameProc)(ELibvlcEventType /*EventType*/);
 
 // logging
 typedef void (*FLibvlcLogCb)(void* /*Data*/, ELibvlcLogLevel /*Level*/, FLibvlcLog* /*Context*/, const char* /*Format*/, va_list /*Args*/);
@@ -91,7 +90,6 @@ typedef void (*FLibvlcMediaPlayerPauseProc)(FLibvlcMediaPlayer* /*Player*/);
 typedef int32 (*FLibvlcMediaPlayerPlayProc)(FLibvlcMediaPlayer* /*Player*/);
 typedef void (*FLibvlcMediaPlayerSetPauseProc)(FLibvlcMediaPlayer* /*Player*/, int32 /*DoPause*/);
 typedef void (*FLibvlcMediaPlayerStopProc)(FLibvlcMediaPlayer* /*Player*/);
-typedef int32 (*FLibvlcMediaPlayerWillPlayProc)(FLibvlcMediaPlayer* /*Player*/);
 
 // audio
 typedef void (*FLibvlcAudioDrainCb)(void* /*Opaque*/);
@@ -154,12 +152,10 @@ typedef void (*FLibvlcVideoSetFormatCallbacksProc)(
 	FLibvlcVideoCleanupCb /*Cleanup*/
 );
 
-typedef int32 (*FLibvlcVideoGetHeightProc)(FLibvlcMediaPlayer* /*Player*/);
 typedef int32 (*FLibvlcVideoGetSizeProc)(FLibvlcMediaPlayer* /*Player*/, uint32 /*VideoNum*/, uint32* /*Width*/, uint32* /*Height*/);
 typedef int32 (*FLibvlcVideoGetSpuProc)(FLibvlcMediaPlayer* /*Player*/);
 typedef int32 (*FLibvlcVideoGetSpuCountProc)(FLibvlcMediaPlayer* /*Player*/);
 typedef int32 (*FLibvlcVideoGetTrackProc)(FLibvlcMediaPlayer* /*Player*/);
-typedef int32(*FLibvlcVideoGetWidthProc)(FLibvlcMediaPlayer* /*Player*/);
 typedef FLibvlcVideoViewpoint* (*FLibvlcVideoNewViewpointProc)();
 typedef int32 (*FLibvlcVideoSetSpuProc)(FLibvlcMediaPlayer* /*Player*/, int32 /*SpuId*/);
 typedef int32 (*FLibvlcVideoSetTrackProc)(FLibvlcMediaPlayer* /*Player*/, int32 /*TrackId*/);

@@ -1,6 +1,6 @@
 # VlcMedia
 
-Unreal Engine 4 Media Framework plug-in using the Video LAN Codec (libvlc).
+Unreal Engine 5 Media Framework plug-in using the Video LAN Codec (libvlc v4).
 
 
 ## About
@@ -8,23 +8,18 @@ Unreal Engine 4 Media Framework plug-in using the Video LAN Codec (libvlc).
 This plug-in is still under development and likely has a lot of remaining issues
 to be fixed. Use in production is not yet recommended.
 
-Make sure to pull the *Tag* that matches your Unreal Engine version. If you sync
-to *Master* the code may not compile, because it may depend on Engine changes
-that are not yet available in the UE4 Master branch.
-
-
 ## Supported Platforms
 
-This plug-in was last built against **Unreal Engine 4.19** and tested
+This plug-in was last built against **Unreal Engine 5.0.3** and tested
 against the following platforms:
 
-- Linux (Ubuntu 16.04)
+- ~~Linux (Ubuntu 16.04)~~
 - ~~Mac~~
 - Windows
 
 **IMPORTANT**: Please note that this repository contains pre-compiled binaries
 for libvlc and its plug-ins, which are licensed under LGPL. This means that you
-cannot create monolithic builds of your game without violating LGPL, the UE4
+cannot create monolithic builds of your game without violating LGPL, the UE5
 EULA or both. The libvlc libraries must remain dynamic libraries that are bound
 at run-time - static linking is not allowed - and the licensing related files in
 */ThirdParty/vlc* must be retained.
@@ -42,44 +37,29 @@ plug-ins remain as separate DLLs.
 ## Prerequisites
 
 A relatively recent version of libvlc is required. The latest stable release
-(currently 2.2.1) is not sufficient.
+(currently 2.2.1) is not sufficient. However, newest nightly builds showed unstable
+performance in context of UE Media Framework. Plugin update to latest libvlc WIP
+(Fall 2022)
 
-For Mac and Windows, the following nightly builds are currently included:
-* macOS: vlc-4.0.0-20180319-0303-dev
-* Win32: vlc-4.0.0-20180319-0303-dev-win32
-* Win64: vlc-4.0.0-20180319-1331-dev-win64
+For Windows, the following nightly builds are currently included:
+* Win64: vlc-4.0.0-dev-win64-249a76b9 (Spring 2022)
+
 
 Nightly builds can be downloaded from the VideoLAN web site (see below).
 
-For debugging on Win32 and Win64, you can download debug builds and replace the
+For debug Win64, you should download debug builds and replace the
 corresponding files and folders in the *VlcMedia/ThirdParty/vlc/* directory.
 
-### Linux (Ubuntu 16.04)
-
-A suitable version of **libvlc** must be installed or compiled from source. If
-you ship your game on Linux, you will likely want to include libvlc with it, so
-that users don't have to install it themselves. We will eventually include those
-binaries in this repository, although it is not clear what distros should be
-supported and where the builds are coming from. A better workflow needs to be
-established for this (https://github.com/ue4plugins/VlcMedia/issues/17).
-
-To clean up, clone, make and install VLC (including libvlc) into your project,
-run the *VlcMedia/Build/Vlc4LinuxCloneMakeInstall.sh* script from within your
-project's root folder. If you later need to make and re-install VLC from the
-existing VLC code, run the *Vlc4LinuxMakeInstall.sh* script instead.
-
-### Mac, Windows
+### Windows
 
 All required libraries and plug-ins are included in the *ThirdParty* directory
 and work out of the box.
-
 
 ## Dependencies
 
 This plug-in requires Visual Studio and either a C++ code project or the full
 Unreal Engine 4 source code from GitHub. If you are new to programming in UE4,
 please see the official [Programming Guide](https://docs.unrealengine.com/latest/INT/Programming/index.html)! 
-
 
 ## Usage
 

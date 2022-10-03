@@ -27,9 +27,20 @@ void FVlcMediaTracks::Initialize(FLibvlcMediaPlayer& InPlayer, FString& OutInfo)
 	UE_LOG(LogVlcMedia, Verbose, TEXT("Tracks: %p: Initializing tracks"), this);
 
 	Player = &InPlayer;
+	
+	// @todo gmp: fix video specs
+	int32 Width;
+	int32 Height;
 
-	int32 Width = FVlc::VideoGetWidth(Player);
-	int32 Height = FVlc::VideoGetHeight(Player);
+	uint32 TrackId = FVlc::VideoGetTrack(Player);
+	uint32 VideoX;
+	uint32 VideoY;
+	
+	FVlc::VideoGetSize(Player, TrackId, &VideoX, &VideoY);
+
+	Width = VideoX;
+	Height = VideoY;
+
 	int32 StreamCount = 0;
 
 	// @todo gmp: fix audio specs
@@ -318,9 +329,12 @@ bool FVlcMediaTracks::GetVideoTrackFormat(int32 TrackIndex, int32 FormatIndex, F
 	{
 		return false;
 	}
-
-	// @todo gmp: fix video specs
-	OutFormat.Dim = FIntPoint(FVlc::VideoGetWidth(Player), FVlc::VideoGetHeight(Player));
+	
+	uint32 Height;
+	uint32 Width;
+	FVlc::VideoGetSize(Player, TrackIndex, &Height, &Width);
+	
+	OutFormat.Dim = FIntPoint(Height, Width);
 	OutFormat.FrameRate = FVlc::MediaPlayerGetFps(Player);
 	OutFormat.FrameRates = TRange<float>(OutFormat.FrameRate);
 	OutFormat.TypeName = TEXT("Default");

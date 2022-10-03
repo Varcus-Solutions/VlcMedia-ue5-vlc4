@@ -107,6 +107,11 @@ public:
 		static FName PlayerName(TEXT("VlcMedia"));
 		return PlayerName;
 	}
+	virtual FGuid GetPlayerPluginGUID() const override
+	{
+		static FGuid PlayerPluginGUID(TEXT("VlcMedia"));
+		return PlayerPluginGUID;
+	}
 
 	virtual const TArray<FString>& GetSupportedPlatforms() const override
 	{
