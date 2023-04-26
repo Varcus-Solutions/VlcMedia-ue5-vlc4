@@ -1,3 +1,5 @@
+# NB! This codebase is outdated, do not use, WIP on production release. 
+
 # VlcMedia
 
 Unreal Engine 5 Media Framework plug-in using the Video LAN Codec (libvlc v4).
